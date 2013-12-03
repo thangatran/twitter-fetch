@@ -1,0 +1,30 @@
+<html ng-app>
+<head>
+	<title>My page</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
+	<script src="twitter-bookmark.js"></script>	
+</head>
+<body>
+	<div style="width:100%;"> 
+		<div id="twitter-feed" style="float:right; width:30%;"><h2>Your Tweets</h2></div>
+		<div ng-controller="bookmarkController" style="float:left; width:70%;">
+			<div id="frametoggle">
+				<p>Page Preview</p>
+				<iframe id="urlframe" src="about:blank" name="myframe" height=600 width=1000></iframe>
+				<button ng-click='add()'>Bookmark</button>
+				<button onclick="closeframe()">Close</button>
+			</div>	
+	
+			<h2>Your Bookmarked Links</h2>
+			<ol>
+				<li ng-repeat="link in bookmarklinks">
+					<a href={{link.url}} target="_blank">{{link.url}}</a>&nbsp;&nbsp;<button ng-click="remove(link)">delete</button>
+					<br>
+				</li>
+			</ol>
+		</div>
+	</div>
+</body>
+</html>
